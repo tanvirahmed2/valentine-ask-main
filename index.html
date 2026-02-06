@@ -12,8 +12,8 @@
       href="https://fonts.googleapis.com/css2?family=Aldrich&family=Pixelify+Sans:wght@400..700&display=swap"
       rel="stylesheet"
     />
-    <title>Document</title>
   </head>
+
   <body>
     <!-- Envelope Screen -->
     <div id="envelope-container">
@@ -24,11 +24,12 @@
     <!-- Letter Screen -->
     <div id="letter-container">
       <div class="letter-window">
+        <!-- STEP 1 -->
         <h1 id="letter-title">Will you be my Valentine, Anaya?</h1>
 
-        <img src="cat_heart.gif" class="cat" id="letter-cat" />
+        <img src="cat_heart.gif" class="cat" id="letter-cat" alt="Cat" />
 
-        <div class="buttons" id="letter-buttons">
+        <div class="buttons" id="step1-buttons">
           <img src="yes.png" class="btn yes-btn" alt="Yes" />
 
           <div class="no-wrapper">
@@ -36,11 +37,35 @@
           </div>
         </div>
 
-        <p id="final-text" class="final-text" style="display: none">
-          <strong>I love you, Kazi Nuzhat Nine.
+        <!-- Message after YES -->
+        <p id="love-text" class="final-text" style="display: none">
+          <strong>I love you, Kazi Nuzhat Nine.</strong>
+        </p>
+
+        <!-- NEXT button -->
+        <button id="next-btn" class="pixel-btn" style="display: none">
+          Next
+        </button>
+
+        <!-- STEP 2 -->
+        <div id="step2" style="display: none">
+          <h1 id="step2-title">Now the Question is Do you love me?</h1>
+
+          <div class="buttons" id="step2-buttons">
+            <button id="love-too-btn" class="pixel-btn">I Love you Too</button>
+            <button id="love-more-btn" class="pixel-btn">I love you more</button>
+          </div>
+        </div>
+
+        <!-- FINAL TEXT -->
+        <p id="honesty-text" class="final-text" style="display: none">
+          <strong>Let's be Honest!</strong><br />
+          you know i <strong>LOVE YOU THE MOST!!!</strong><br />
+          So don't say <strong>I love you more.</strong>
         </p>
       </div>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>
