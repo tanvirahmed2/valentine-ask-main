@@ -18,7 +18,7 @@ const loveMoreBtn = document.getElementById("love-more-btn");
 
 const honestyText = document.getElementById("honesty-text");
 
-// Click Envelope
+// Open letter
 envelope.addEventListener("click", () => {
   envelope.style.display = "none";
   letter.style.display = "flex";
@@ -28,7 +28,7 @@ envelope.addEventListener("click", () => {
   }, 50);
 });
 
-// Move NO button away on hover (Step 1)
+// NO button runs away
 noBtn.addEventListener("mouseover", () => {
   const distance = 200;
   const angle = Math.random() * Math.PI * 2;
@@ -40,7 +40,7 @@ noBtn.addEventListener("mouseover", () => {
   noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
 });
 
-// YES clicked (Step 1)
+// YES clicked
 yesBtn.addEventListener("click", () => {
   title.textContent = "Yippeeee!";
   catImg.src = "cat_dance.gif";
@@ -52,27 +52,27 @@ yesBtn.addEventListener("click", () => {
   nextBtn.style.display = "inline-block";
 });
 
-// Next clicked -> Step 2
+// NEXT -> Step 2
 nextBtn.addEventListener("click", () => {
   loveText.style.display = "none";
   nextBtn.style.display = "none";
 
   step2.style.display = "block";
 
-  // reset any previous transforms
+  // reset scaling
   loveTooBtn.style.transform = "scale(1)";
   loveMoreBtn.style.transform = "translate(0,0)";
 });
 
-// Step 2: clicking wrong button makes correct one bigger
 let loveTooScale = 1;
 
+// Wrong answer makes correct one bigger
 loveMoreBtn.addEventListener("click", () => {
   loveTooScale += 0.25;
   loveTooBtn.style.transform = `scale(${loveTooScale})`;
 });
 
-// Optional: also make "I love you more" annoying to click
+// Also make it annoying
 loveMoreBtn.addEventListener("mouseover", () => {
   const distance = 120;
   const angle = Math.random() * Math.PI * 2;
@@ -84,12 +84,12 @@ loveMoreBtn.addEventListener("mouseover", () => {
   loveMoreBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
 });
 
-// Step 2: clicking correct button -> final message
+// FINAL SCREEN
 loveTooBtn.addEventListener("click", () => {
   step2.style.display = "none";
 
   title.textContent = "Let's be Honest!";
-  catImg.src = "cat_heart.gif";
+  catImg.src = "love.png"; // 🔥 YOUR IMAGE HERE
 
   honestyText.style.display = "inline-block";
 });
