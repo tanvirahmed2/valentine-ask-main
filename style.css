@@ -1,5 +1,5 @@
 /* =======================
-style.css (FULL) + NEW SLIDE STYLES ADDED
+style.css (FULL) + SIGHT SLIDE STYLES ADDED
 ======================= */
 
 body {
@@ -195,7 +195,7 @@ h1 {
   max-width: 70%;
 }
 
-/* ONE MORE THING SLIDE (NEW) */
+/* ONE MORE THING SLIDE */
 #one-more-slide {
   display: flex;
   flex-direction: column;
@@ -207,4 +207,31 @@ h1 {
   max-width: 560px;
   font-size: 18px;
   line-height: 1.5;
+}
+
+/* =========================
+   SIGHT SLIDE (NEW)
+   ========================= */
+#sight-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.sense-img {
+  width: 240px;
+  max-width: 75%;
+}
+
+/* black + bold + same “title” look */
+.sense-text {
+  max-width: 560px;
+  font-size: 30px;     /* same size as h1 */
+  font-weight: 700;    /* bold */
+  color: #000;         /* black */
+  line-height: 1.2;    /* like your titles */
+  text-align: center;
+  background: none;    /* no pink bubble */
+  padding: 0;
 }

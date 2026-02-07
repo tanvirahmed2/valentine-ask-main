@@ -1,5 +1,5 @@
 // =======================
-// script.js (FULL) + NEW BUTTON LOGIC ADDED
+// script.js (FULL) + SIGHT LOGIC ADDED
 // =======================
 
 // Elements
@@ -33,8 +33,12 @@ const letterNext2 = document.getElementById("letter-next-2");
 const lastlyBtn = document.getElementById("lastly-btn");
 const usSlide = document.getElementById("us-slide");
 
-const oneMoreBtn = document.getElementById("one-more-btn");       // NEW
-const oneMoreSlide = document.getElementById("one-more-slide");   // NEW
+const oneMoreBtn = document.getElementById("one-more-btn");
+const oneMoreSlide = document.getElementById("one-more-slide");
+
+// NEW: Sight elements
+const sightBtn = document.getElementById("sight-btn");
+const sightSlide = document.getElementById("sight-slide");
 
 // Open letter window
 envelope.addEventListener("click", () => {
@@ -132,7 +136,8 @@ openLetterBtn.addEventListener("click", () => {
   page2.style.display = "none";
   page3.style.display = "none";
   usSlide.style.display = "none";
-  oneMoreSlide.style.display = "none"; // NEW
+  oneMoreSlide.style.display = "none";
+  sightSlide.style.display = "none";
 });
 
 // Page 1 -> Page 2
@@ -153,8 +158,14 @@ lastlyBtn.addEventListener("click", () => {
   usSlide.style.display = "flex";
 });
 
-// One more thing -> new message slide (NEW)
+// One more thing -> new message slide
 oneMoreBtn.addEventListener("click", () => {
   usSlide.style.display = "none";
   oneMoreSlide.style.display = "flex";
+});
+
+// NEW: Sight -> sight slide
+sightBtn.addEventListener("click", () => {
+  oneMoreSlide.style.display = "none";
+  sightSlide.style.display = "flex";
 });
