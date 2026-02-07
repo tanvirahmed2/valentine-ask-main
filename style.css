@@ -1,5 +1,5 @@
 /* =======================
-style.css (FULL) + SMELL SLIDE WORKS WITH SAME STYLES
+style.css (FULL) + TASTE SLIDE WORKS WITH SAME STYLES
 ======================= */
 
 body {
@@ -198,7 +198,8 @@ h1 {
 /* SENSE SLIDES */
 #sight-slide,
 #hearing-slide,
-#smell-slide {
+#smell-slide,
+#taste-slide {
   display: flex;
   flex-direction: column;
   align-items: center;

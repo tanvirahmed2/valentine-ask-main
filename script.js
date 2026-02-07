@@ -1,5 +1,5 @@
 // =======================
-// script.js (FULL) + SMELL LOGIC ADDED
+// script.js (FULL) + TASTE LOGIC ADDED
 // =======================
 
 // Elements
@@ -42,9 +42,12 @@ const sightSlide = document.getElementById("sight-slide");
 const hearingBtn = document.getElementById("hearing-btn");
 const hearingSlide = document.getElementById("hearing-slide");
 
-// NEW: Smell
 const smellBtn = document.getElementById("smell-btn");
 const smellSlide = document.getElementById("smell-slide");
+
+// NEW: Taste
+const tasteBtn = document.getElementById("taste-btn");
+const tasteSlide = document.getElementById("taste-slide");
 
 // Open letter window
 envelope.addEventListener("click", () => {
@@ -143,6 +146,7 @@ openLetterBtn.addEventListener("click", () => {
   sightSlide.style.display = "none";
   hearingSlide.style.display = "none";
   smellSlide.style.display = "none";
+  tasteSlide.style.display = "none";
 });
 
 // Page 1 -> Page 2
@@ -181,8 +185,14 @@ hearingBtn.addEventListener("click", () => {
   hearingSlide.style.display = "flex";
 });
 
-// Smell -> smell slide (NEW)
+// Smell -> smell slide
 smellBtn.addEventListener("click", () => {
   hearingSlide.style.display = "none";
   smellSlide.style.display = "flex";
+});
+
+// Taste -> taste slide (NEW)
+tasteBtn.addEventListener("click", () => {
+  smellSlide.style.display = "none";
+  tasteSlide.style.display = "flex";
 });
