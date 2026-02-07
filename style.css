@@ -25,7 +25,7 @@ body {
   animation: pulse 1.5s infinite;
 }
 
-/* Letter */
+/* Letter screen container */
 #letter-container {
   display: none;
   position: fixed;
@@ -39,10 +39,9 @@ body {
   max-width: 800px;
   aspect-ratio: 3/2;
 
-  /* IMPORTANT: start content from the top of the safe area */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;   /* ✅ CHANGED (was center) */
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
 
@@ -52,9 +51,7 @@ body {
   background-position: center;
 
   border-radius: 12px;
-
-  /* More stable spacing inside the window */
-  padding-top: 250px;            /* ✅ slightly more room */
+  padding-top: 270px; /* your “a bit lower” */
   padding-left: 20px;
   padding-right: 20px;
 
@@ -70,26 +67,25 @@ body {
   opacity: 1;
 }
 
-/* Titles */
 h1 {
   font-size: 30px;
   margin: 0;
-  line-height: 1.2;              /* ✅ keeps text neatly inside */
+  line-height: 1.2;
 }
 
-/* Only the envelope text should be big */
+/* Only envelope text should be big */
 #envelope-container p {
   font-size: 40px;
 }
 
-/* Paragraphs inside the window */
+/* Paragraph spacing inside window */
 .letter-window p {
   margin: 0;
 }
 
-/* Cat / Image */
+/* Cat / image */
 .cat {
-  width: 260px;
+  width: 250px;
   margin: 10px 0;
   transition: width 0.4s ease;
 }
@@ -98,7 +94,7 @@ h1 {
   width: 180px;
 }
 
-/* Buttons */
+/* Buttons row */
 .buttons {
   display: flex;
   gap: 30px;
@@ -114,6 +110,7 @@ h1 {
   user-select: none;
 }
 
+/* Final message bubble */
 .final-text {
   font-size: 22px;
   line-height: 1.4;
@@ -124,7 +121,7 @@ h1 {
   border-radius: 12px;
 }
 
-/* Pixel buttons */
+/* Pixel buttons (Next, Open letter, etc.) */
 .pixel-btn {
   font-family: "Pixelify Sans", sans-serif;
   font-size: 20px;
@@ -140,3 +137,48 @@ h1 {
 .pixel-btn:hover {
   transform: scale(1.05);
 }
+
+/* =========================
+   LETTER MODE (TEXT ONLY)
+   ========================= */
+
+/* Push everything lower inside the window during letter mode */
+.letter-window.letter-mode {
+  padding-top: 300px;   /* ✅ lower the content */
+  gap: 14px;
+}
+
+/* Keep the pages nicely centered in the window */
+#letter-pages {
+  width: 100%;
+  max-width: 560px;
+}
+
+/* Each letter page */
+.letter-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* NO SCROLL: let the full page show */
+.letter-text {
+  width: 100%;
+  overflow: hidden;     /* ✅ removes scrollbar */
+  max-height: none;     /* ✅ no height limit */
+  padding: 16px 18px;
+
+  background-color: rgba(255, 240, 240, 0.55);
+  border-radius: 12px;
+
+  text-align: left;
+  font-size: 14px;      /* ✅ smaller so all text fits */
+  line-height: 1.45;    /* ✅ tighter spacing to fit */
+}
+
+/* Paragraph spacing inside letter */
+.letter-text p {
+  margin: 0 0 8px 0;    /* ✅ smaller spacing */
+}
+

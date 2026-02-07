@@ -17,8 +17,16 @@ const loveTooBtn = document.getElementById("love-too-btn");
 const loveMoreBtn = document.getElementById("love-more-btn");
 
 const honestyText = document.getElementById("honesty-text");
+const openLetterBtn = document.getElementById("open-letter-btn");
 
-// Open letter
+const letterPages = document.getElementById("letter-pages");
+const page1 = document.getElementById("page-1");
+const page2 = document.getElementById("page-2");
+const page3 = document.getElementById("page-3");
+const letterNext1 = document.getElementById("letter-next-1");
+const letterNext2 = document.getElementById("letter-next-2");
+
+// Open letter window
 envelope.addEventListener("click", () => {
   envelope.style.display = "none";
   letter.style.display = "flex";
@@ -28,7 +36,7 @@ envelope.addEventListener("click", () => {
   }, 50);
 });
 
-// NO button runs away
+// NO button runs away (step 1)
 noBtn.addEventListener("mouseover", () => {
   const distance = 200;
   const angle = Math.random() * Math.PI * 2;
@@ -40,7 +48,7 @@ noBtn.addEventListener("mouseover", () => {
   noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
 });
 
-// YES clicked
+// YES clicked (step 1)
 yesBtn.addEventListener("click", () => {
   title.textContent = "Yippeeee!";
   catImg.src = "cat_dance.gif";
@@ -52,27 +60,27 @@ yesBtn.addEventListener("click", () => {
   nextBtn.style.display = "inline-block";
 });
 
-// NEXT -> Step 2
+// Next -> step 2
 nextBtn.addEventListener("click", () => {
   loveText.style.display = "none";
   nextBtn.style.display = "none";
 
   step2.style.display = "block";
 
-  // reset scaling
+  // reset positions
   loveTooBtn.style.transform = "scale(1)";
   loveMoreBtn.style.transform = "translate(0,0)";
 });
 
+// Step 2 logic: wrong button makes correct bigger
 let loveTooScale = 1;
 
-// Wrong answer makes correct one bigger
 loveMoreBtn.addEventListener("click", () => {
   loveTooScale += 0.25;
   loveTooBtn.style.transform = `scale(${loveTooScale})`;
 });
 
-// Also make it annoying
+// optional: make wrong button annoying
 loveMoreBtn.addEventListener("mouseover", () => {
   const distance = 120;
   const angle = Math.random() * Math.PI * 2;
@@ -84,12 +92,52 @@ loveMoreBtn.addEventListener("mouseover", () => {
   loveMoreBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
 });
 
-// FINAL SCREEN
+// Correct button -> final message + open letter button
 loveTooBtn.addEventListener("click", () => {
   step2.style.display = "none";
 
   title.textContent = "Let's be Honest!";
-  catImg.src = "love.png"; // 🔥 YOUR IMAGE HERE
+  catImg.src = "love.png"; // your last-slide image
 
   honestyText.style.display = "inline-block";
+  openLetterBtn.style.display = "inline-block";
+});
+
+// Open your letter -> show page 1 (text only)
+openLetterBtn.addEventListener("click", () => {
+  // hide final slide bits
+  honestyText.style.display = "none";
+  openLetterBtn.style.display = "none";
+
+  // switch to letter mode (text only)
+  title.style.display = "none";
+  catImg.style.display = "none";
+
+  const win = document.querySelector(".letter-window");
+  win.classList.add("letter-mode");
+
+  // show letter pages
+  letterPages.style.display = "block";
+  page1.style.display = "block";
+  page2.style.display = "none";
+  page3.style.display = "none";
+
+  // reset scroll positions
+  page1.querySelector(".letter-text").scrollTop = 0;
+  page2.querySelector(".letter-text").scrollTop = 0;
+  page3.querySelector(".letter-text").scrollTop = 0;
+});
+
+// Page 1 -> Page 2
+letterNext1.addEventListener("click", () => {
+  page1.style.display = "none";
+  page2.style.display = "block";
+  page2.querySelector(".letter-text").scrollTop = 0;
+});
+
+// Page 2 -> Page 3 (no button)
+letterNext2.addEventListener("click", () => {
+  page2.style.display = "none";
+  page3.style.display = "block";
+  page3.querySelector(".letter-text").scrollTop = 0;
 });
