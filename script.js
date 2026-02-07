@@ -1,5 +1,5 @@
 // =======================
-// script.js (FULL) - UPDATED (compact class FIXED)
+// script.js (FULL) ✅ UPDATED (slide classes + per-slide controls enabled)
 // =======================
 
 const envelope = document.getElementById("envelope-container");
@@ -53,13 +53,32 @@ const touchSlide = document.getElementById("touch-slide");
 const theEndBtn = document.getElementById("the-end-btn");
 const endSlide = document.getElementById("end-slide");
 
+const win = document.querySelector(".letter-window");
+
+// helper: remove all slide classes, then add the one we want
+function setSlideClass(className) {
+  win.classList.remove(
+    "slide-yip",
+    "slide-honest",
+    "slide-us",
+    "slide-onemore",
+    "slide-sight",
+    "slide-hearing",
+    "slide-smell",
+    "slide-taste",
+    "slide-touch",
+    "slide-end"
+  );
+  if (className) win.classList.add(className);
+}
+
 // Open letter window
 envelope.addEventListener("click", () => {
   envelope.style.display = "none";
   letter.style.display = "flex";
 
   setTimeout(() => {
-    document.querySelector(".letter-window").classList.add("open");
+    win.classList.add("open");
   }, 50);
 });
 
@@ -75,23 +94,22 @@ noBtn.addEventListener("mouseover", () => {
   noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
 });
 
-// YES clicked (✅ adds compact so your CSS works)
+// YES clicked -> YIPPEEEE slide
 yesBtn.addEventListener("click", () => {
   title.textContent = "Yippeeee!";
   catImg.src = "cat_dance.gif";
 
-  const win = document.querySelector(".letter-window");
   win.classList.add("final");
-  win.classList.add("compact"); // ✅ IMPORTANT
+  setSlideClass("slide-yip");
 
   step1Buttons.style.display = "none";
   loveText.style.display = "inline-block";
   nextBtn.style.display = "inline-block";
 });
 
-// Next -> step 2 (✅ remove compact)
+// Next -> step 2
 nextBtn.addEventListener("click", () => {
-  document.querySelector(".letter-window").classList.remove("compact"); // ✅ IMPORTANT
+  setSlideClass(""); // no slide class here
 
   loveText.style.display = "none";
   nextBtn.style.display = "none";
@@ -128,6 +146,8 @@ loveTooBtn.addEventListener("click", () => {
   title.textContent = "Let's be Honest!";
   catImg.src = "love.png";
 
+  setSlideClass("slide-honest");
+
   honestyText.style.display = "inline-block";
   openLetterBtn.style.display = "inline-block";
 });
@@ -137,11 +157,11 @@ openLetterBtn.addEventListener("click", () => {
   honestyText.style.display = "none";
   openLetterBtn.style.display = "none";
 
+  setSlideClass(""); // stop using slide positions
+  win.classList.add("letter-mode");
+
   title.style.display = "none";
   catImg.style.display = "none";
-
-  const win = document.querySelector(".letter-window");
-  win.classList.add("letter-mode");
 
   letterPages.style.display = "block";
   page1.style.display = "flex";
@@ -169,42 +189,66 @@ letterNext2.addEventListener("click", () => {
   page3.style.display = "flex";
 });
 
+// Lastly -> us slide
 lastlyBtn.addEventListener("click", () => {
   letterPages.style.display = "none";
   usSlide.style.display = "flex";
+
+  setSlideClass("slide-us");
 });
 
+// One more thing slide
 oneMoreBtn.addEventListener("click", () => {
   usSlide.style.display = "none";
   oneMoreSlide.style.display = "flex";
+
+  setSlideClass("slide-onemore");
 });
 
+// Sight slide
 sightBtn.addEventListener("click", () => {
   oneMoreSlide.style.display = "none";
   sightSlide.style.display = "flex";
+
+  setSlideClass("slide-sight");
 });
 
+// Hearing slide
 hearingBtn.addEventListener("click", () => {
   sightSlide.style.display = "none";
   hearingSlide.style.display = "flex";
+
+  setSlideClass("slide-hearing");
 });
 
+// Smell slide
 smellBtn.addEventListener("click", () => {
   hearingSlide.style.display = "none";
   smellSlide.style.display = "flex";
+
+  setSlideClass("slide-smell");
 });
 
+// Taste slide
 tasteBtn.addEventListener("click", () => {
   smellSlide.style.display = "none";
   tasteSlide.style.display = "flex";
+
+  setSlideClass("slide-taste");
 });
 
+// Touch slide
 touchBtn.addEventListener("click", () => {
   tasteSlide.style.display = "none";
   touchSlide.style.display = "flex";
+
+  setSlideClass("slide-touch");
 });
 
+// End slide
 theEndBtn.addEventListener("click", () => {
   touchSlide.style.display = "none";
   endSlide.style.display = "flex";
+
+  setSlideClass("slide-end");
 });

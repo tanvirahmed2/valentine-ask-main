@@ -1,6 +1,7 @@
 /* =======================
-style.css (FULL) - UPDATED
-(Compact + move controls WORK because JS adds .compact now)
+style.css (FULL) ✅ UPDATED
+- keeps your existing layout
+- adds per-slide move controls for EVERYTHING
 ======================= */
 
 body {
@@ -75,45 +76,6 @@ body {
   opacity: 1;
 }
 
-/* =======================
-Compact Mode (Yippeeee slide)
-======================= */
-.letter-window.compact {
-  padding-top: 245px;
-  gap: 8px;
-}
-
-/* Make sure compact wins even if .final is present */
-.letter-window.final.compact .cat {
-  width: 210px;
-  margin: 6px 0;
-}
-
-.letter-window.compact .final-text {
-  padding: 8px 16px;
-}
-
-.letter-window.compact .pixel-btn {
-  padding: 10px 16px;
-}
-
-/* =======================
-✅ Adjust these 3 values to move items on Yippeeee slide
-More negative = UP, less negative/positive = DOWN
-======================= */
-.letter-window.compact .cat {
-  transform: translateY(-30px);
-}
-
-.letter-window.compact #love-text {
-  transform: translateY(-18px);
-}
-
-.letter-window.compact #next-btn {
-  transform: translateY(-22px);
-}
-
-/* ======================= */
 h1 {
   font-size: 30px;
   margin: 0;
@@ -175,6 +137,7 @@ h1 {
   border-radius: 12px;
 }
 
+/* LETTER MODE */
 .letter-window.letter-mode {
   padding-top: 300px;
   gap: 14px;
@@ -208,7 +171,15 @@ h1 {
   margin: 0 0 8px 0;
 }
 
-#us-slide {
+/* US + OTHER SLIDES */
+#us-slide,
+#one-more-slide,
+#sight-slide,
+#hearing-slide,
+#smell-slide,
+#taste-slide,
+#touch-slide,
+#end-slide {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -220,29 +191,10 @@ h1 {
   max-width: 70%;
 }
 
-#one-more-slide {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-}
-
 .one-more-text {
   max-width: 560px;
   font-size: 18px;
   line-height: 1.5;
-}
-
-#sight-slide,
-#hearing-slide,
-#smell-slide,
-#taste-slide,
-#touch-slide,
-#end-slide {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
 }
 
 .sense-img {
@@ -258,3 +210,58 @@ h1 {
   line-height: 1.2;
   text-align: center;
 }
+
+/* =========================================================
+   ✅ SLIDE POSITION CONTROLS (EDIT THESE NUMBERS ANYTIME)
+   More negative = UP, less negative/positive = DOWN
+   ========================================================= */
+
+/* ---------- YIPPEEEE slide ---------- */
+.letter-window.slide-yip #letter-title { transform: translateY(0px); }
+.letter-window.slide-yip #letter-cat   { transform: translateY(-30px); }
+.letter-window.slide-yip #love-text    { transform: translateY(-18px); }
+.letter-window.slide-yip #next-btn     { transform: translateY(-22px); }
+
+/* ---------- LET'S BE HONEST slide ---------- */
+.letter-window.slide-honest #letter-title    { transform: translateY(0px); }
+.letter-window.slide-honest #letter-cat      { transform: translateY(-20px); } /* love.png */
+.letter-window.slide-honest #honesty-text    { transform: translateY(-60px); }
+.letter-window.slide-honest #open-letter-btn { transform: translateY(-60px); }
+
+/* ---------- US slide ---------- */
+.letter-window.slide-us #us-slide .us-img     { transform: translateY(0px); }
+.letter-window.slide-us #us-slide .final-text { transform: translateY(0px); }
+.letter-window.slide-us #one-more-btn         { transform: translateY(0px); }
+
+/* ---------- ONE MORE THING slide ---------- */
+.letter-window.slide-onemore #one-more-slide .one-more-text { transform: translateY(0px); }
+.letter-window.slide-onemore #sight-btn                     { transform: translateY(0px); }
+
+/* ---------- SIGHT slide ---------- */
+.letter-window.slide-sight #sight-slide .sense-img  { transform: translateY(-30px); }
+.letter-window.slide-sight #sight-slide .sense-text { transform: translateY(-50px); }
+.letter-window.slide-sight #hearing-btn             { transform: translateY(-50px); }
+
+/* ---------- HEARING slide ---------- */
+.letter-window.slide-hearing #hearing-slide .sense-img  { transform: translateY(-20px); }
+.letter-window.slide-hearing #hearing-slide .sense-text { transform: translateY(-50px); }
+.letter-window.slide-hearing #smell-btn                 { transform: translateY(-70px); }
+
+/* ---------- SMELL slide ---------- */
+.letter-window.slide-smell #smell-slide .sense-img  { transform: translateY(-30px); }
+.letter-window.slide-smell #smell-slide .sense-text { transform: translateY(-80px); }
+.letter-window.slide-smell #taste-btn               { transform: translateY(-80px); }
+
+/* ---------- TASTE slide ---------- */
+.letter-window.slide-taste #taste-slide .sense-img  { transform: translateY(-40px); }
+.letter-window.slide-taste #taste-slide .sense-text { transform: translateY(-80px); }
+.letter-window.slide-taste #touch-btn               { transform: translateY(-80px); }
+
+/* ---------- TOUCH slide ---------- */
+.letter-window.slide-touch #touch-slide .sense-img  { transform: translateY(-70px); }
+.letter-window.slide-touch #touch-slide .sense-text { transform: translateY(-130px); }
+.letter-window.slide-touch #the-end-btn             { transform: translateY(-130px); }
+
+/* ---------- END slide ---------- */
+.letter-window.slide-end #end-slide .sense-img  { transform: translateY(0px); }
+.letter-window.slide-end #end-slide .sense-text { transform: translateY(0px); }
