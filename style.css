@@ -1,5 +1,5 @@
 /* =======================
-style.css (FULL) + TASTE SLIDE WORKS WITH SAME STYLES
+style.css (FULL) + TOUCH SLIDE INCLUDED
 ======================= */
 
 body {
@@ -199,7 +199,8 @@ h1 {
 #sight-slide,
 #hearing-slide,
 #smell-slide,
-#taste-slide {
+#taste-slide,
+#touch-slide {
   display: flex;
   flex-direction: column;
   align-items: center;
