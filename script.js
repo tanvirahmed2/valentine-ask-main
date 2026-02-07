@@ -1,5 +1,5 @@
 // =======================
-// script.js (FULL) + SIGHT LOGIC ADDED
+// script.js (FULL) - HEARING BUTTON ON SIGHT SLIDE
 // =======================
 
 // Elements
@@ -36,9 +36,11 @@ const usSlide = document.getElementById("us-slide");
 const oneMoreBtn = document.getElementById("one-more-btn");
 const oneMoreSlide = document.getElementById("one-more-slide");
 
-// NEW: Sight elements
 const sightBtn = document.getElementById("sight-btn");
 const sightSlide = document.getElementById("sight-slide");
+
+const hearingBtn = document.getElementById("hearing-btn");
+const hearingSlide = document.getElementById("hearing-slide");
 
 // Open letter window
 envelope.addEventListener("click", () => {
@@ -119,25 +121,24 @@ loveTooBtn.addEventListener("click", () => {
 
 // Open your letter -> show page 1 (text only)
 openLetterBtn.addEventListener("click", () => {
-  // hide final slide bits
   honestyText.style.display = "none";
   openLetterBtn.style.display = "none";
 
-  // switch to letter mode (text only)
   title.style.display = "none";
   catImg.style.display = "none";
 
   const win = document.querySelector(".letter-window");
   win.classList.add("letter-mode");
 
-  // show letter pages
   letterPages.style.display = "block";
   page1.style.display = "flex";
   page2.style.display = "none";
   page3.style.display = "none";
+
   usSlide.style.display = "none";
   oneMoreSlide.style.display = "none";
   sightSlide.style.display = "none";
+  hearingSlide.style.display = "none";
 });
 
 // Page 1 -> Page 2
@@ -164,8 +165,14 @@ oneMoreBtn.addEventListener("click", () => {
   oneMoreSlide.style.display = "flex";
 });
 
-// NEW: Sight -> sight slide
+// Sight -> sight slide
 sightBtn.addEventListener("click", () => {
   oneMoreSlide.style.display = "none";
   sightSlide.style.display = "flex";
+});
+
+// Hearing -> hearing slide (button is on Sight slide)
+hearingBtn.addEventListener("click", () => {
+  sightSlide.style.display = "none";
+  hearingSlide.style.display = "flex";
 });
