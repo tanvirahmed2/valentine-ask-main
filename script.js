@@ -1,8 +1,7 @@
 // =======================
-// script.js (FULL) + THE END LOGIC ADDED
+// script.js (FULL) - UPDATED (compact class FIXED)
 // =======================
 
-// Elements
 const envelope = document.getElementById("envelope-container");
 const letter = document.getElementById("letter-container");
 
@@ -51,7 +50,6 @@ const tasteSlide = document.getElementById("taste-slide");
 const touchBtn = document.getElementById("touch-btn");
 const touchSlide = document.getElementById("touch-slide");
 
-// NEW: The End
 const theEndBtn = document.getElementById("the-end-btn");
 const endSlide = document.getElementById("end-slide");
 
@@ -65,7 +63,7 @@ envelope.addEventListener("click", () => {
   }, 50);
 });
 
-// NO button runs away (step 1)
+// NO button runs away
 noBtn.addEventListener("mouseover", () => {
   const distance = 200;
   const angle = Math.random() * Math.PI * 2;
@@ -77,20 +75,24 @@ noBtn.addEventListener("mouseover", () => {
   noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
 });
 
-// YES clicked (step 1)
+// YES clicked (✅ adds compact so your CSS works)
 yesBtn.addEventListener("click", () => {
   title.textContent = "Yippeeee!";
   catImg.src = "cat_dance.gif";
 
-  document.querySelector(".letter-window").classList.add("final");
+  const win = document.querySelector(".letter-window");
+  win.classList.add("final");
+  win.classList.add("compact"); // ✅ IMPORTANT
 
   step1Buttons.style.display = "none";
   loveText.style.display = "inline-block";
   nextBtn.style.display = "inline-block";
 });
 
-// Next -> step 2
+// Next -> step 2 (✅ remove compact)
 nextBtn.addEventListener("click", () => {
+  document.querySelector(".letter-window").classList.remove("compact"); // ✅ IMPORTANT
+
   loveText.style.display = "none";
   nextBtn.style.display = "none";
 
@@ -100,7 +102,7 @@ nextBtn.addEventListener("click", () => {
   loveMoreBtn.style.transform = "translate(0,0)";
 });
 
-// Step 2 logic: wrong button makes correct bigger
+// Wrong button makes correct bigger
 let loveTooScale = 1;
 
 loveMoreBtn.addEventListener("click", () => {
@@ -108,7 +110,6 @@ loveMoreBtn.addEventListener("click", () => {
   loveTooBtn.style.transform = `scale(${loveTooScale})`;
 });
 
-// optional: make wrong button annoying
 loveMoreBtn.addEventListener("mouseover", () => {
   const distance = 120;
   const angle = Math.random() * Math.PI * 2;
@@ -120,7 +121,7 @@ loveMoreBtn.addEventListener("mouseover", () => {
   loveMoreBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
 });
 
-// Correct button -> final message + open letter button
+// Correct button -> honesty slide
 loveTooBtn.addEventListener("click", () => {
   step2.style.display = "none";
 
@@ -131,7 +132,7 @@ loveTooBtn.addEventListener("click", () => {
   openLetterBtn.style.display = "inline-block";
 });
 
-// Open your letter -> show page 1 (text only)
+// Open your letter
 openLetterBtn.addEventListener("click", () => {
   honestyText.style.display = "none";
   openLetterBtn.style.display = "none";
@@ -157,61 +158,52 @@ openLetterBtn.addEventListener("click", () => {
   endSlide.style.display = "none";
 });
 
-// Page 1 -> Page 2
+// Page navigation
 letterNext1.addEventListener("click", () => {
   page1.style.display = "none";
   page2.style.display = "flex";
 });
 
-// Page 2 -> Page 3
 letterNext2.addEventListener("click", () => {
   page2.style.display = "none";
   page3.style.display = "flex";
 });
 
-// Lastly -> final us slide
 lastlyBtn.addEventListener("click", () => {
   letterPages.style.display = "none";
   usSlide.style.display = "flex";
 });
 
-// One more thing -> new message slide
 oneMoreBtn.addEventListener("click", () => {
   usSlide.style.display = "none";
   oneMoreSlide.style.display = "flex";
 });
 
-// Sight -> sight slide
 sightBtn.addEventListener("click", () => {
   oneMoreSlide.style.display = "none";
   sightSlide.style.display = "flex";
 });
 
-// Hearing -> hearing slide
 hearingBtn.addEventListener("click", () => {
   sightSlide.style.display = "none";
   hearingSlide.style.display = "flex";
 });
 
-// Smell -> smell slide
 smellBtn.addEventListener("click", () => {
   hearingSlide.style.display = "none";
   smellSlide.style.display = "flex";
 });
 
-// Taste -> taste slide
 tasteBtn.addEventListener("click", () => {
   smellSlide.style.display = "none";
   tasteSlide.style.display = "flex";
 });
 
-// Touch -> touch slide
 touchBtn.addEventListener("click", () => {
   tasteSlide.style.display = "none";
   touchSlide.style.display = "flex";
 });
 
-// The End -> end slide (NEW)
 theEndBtn.addEventListener("click", () => {
   touchSlide.style.display = "none";
   endSlide.style.display = "flex";

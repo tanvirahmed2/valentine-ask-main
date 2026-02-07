@@ -1,5 +1,6 @@
 /* =======================
-style.css (FULL)
+style.css (FULL) - UPDATED
+(Compact + move controls WORK because JS adds .compact now)
 ======================= */
 
 body {
@@ -12,9 +13,6 @@ body {
   font-family: "Pixelify Sans", sans-serif;
 }
 
-/* =======================
-Envelope
-======================= */
 #envelope-container {
   text-align: center;
   cursor: pointer;
@@ -35,9 +33,6 @@ Envelope
   animation: pulse 1.5s infinite;
 }
 
-/* =======================
-Letter Screen Container
-======================= */
 #letter-container {
   display: none;
   position: fixed;
@@ -46,9 +41,6 @@ Letter Screen Container
   align-items: center;
 }
 
-/* =======================
-Letter Window
-======================= */
 .letter-window {
   width: 90vw;
   max-width: 800px;
@@ -87,11 +79,12 @@ Letter Window
 Compact Mode (Yippeeee slide)
 ======================= */
 .letter-window.compact {
-  padding-top: 245px;   /* pull content up */
+  padding-top: 245px;
   gap: 8px;
 }
 
-.letter-window.compact .cat {
+/* Make sure compact wins even if .final is present */
+.letter-window.final.compact .cat {
   width: 210px;
   margin: 6px 0;
 }
@@ -105,8 +98,22 @@ Compact Mode (Yippeeee slide)
 }
 
 /* =======================
-Titles & Text
+✅ Adjust these 3 values to move items on Yippeeee slide
+More negative = UP, less negative/positive = DOWN
 ======================= */
+.letter-window.compact .cat {
+  transform: translateY(-30px);
+}
+
+.letter-window.compact #love-text {
+  transform: translateY(-18px);
+}
+
+.letter-window.compact #next-btn {
+  transform: translateY(-22px);
+}
+
+/* ======================= */
 h1 {
   font-size: 30px;
   margin: 0;
@@ -117,9 +124,6 @@ h1 {
   margin: 0;
 }
 
-/* =======================
-Cat / Images
-======================= */
 .cat {
   width: 250px;
   margin: 10px 0;
@@ -130,9 +134,6 @@ Cat / Images
   width: 180px;
 }
 
-/* =======================
-Buttons
-======================= */
 .buttons {
   display: flex;
   gap: 30px;
@@ -140,9 +141,7 @@ Buttons
   flex-wrap: wrap;
 }
 
-.no-wrapper {
-  position: relative;
-}
+.no-wrapper { position: relative; }
 
 .btn {
   width: 120px;
@@ -150,9 +149,6 @@ Buttons
   user-select: none;
 }
 
-/* =======================
-Pixel Buttons
-======================= */
 .pixel-btn {
   font-family: "Pixelify Sans", sans-serif;
   font-size: 20px;
@@ -169,9 +165,6 @@ Pixel Buttons
   transform: scale(1.05);
 }
 
-/* =======================
-Final Bubble Text
-======================= */
 .final-text {
   font-size: 22px;
   line-height: 1.4;
@@ -182,9 +175,6 @@ Final Bubble Text
   border-radius: 12px;
 }
 
-/* =======================
-LETTER MODE (Text Pages)
-======================= */
 .letter-window.letter-mode {
   padding-top: 300px;
   gap: 14px;
@@ -207,10 +197,8 @@ LETTER MODE (Text Pages)
   width: 100%;
   overflow: hidden;
   padding: 16px 18px;
-
   background-color: rgba(255, 240, 240, 0.55);
   border-radius: 12px;
-
   text-align: left;
   font-size: 14px;
   line-height: 1.45;
@@ -220,9 +208,6 @@ LETTER MODE (Text Pages)
   margin: 0 0 8px 0;
 }
 
-/* =======================
-US SLIDE
-======================= */
 #us-slide {
   display: flex;
   flex-direction: column;
@@ -235,9 +220,6 @@ US SLIDE
   max-width: 70%;
 }
 
-/* =======================
-ONE MORE THING SLIDE
-======================= */
 #one-more-slide {
   display: flex;
   flex-direction: column;
@@ -251,9 +233,6 @@ ONE MORE THING SLIDE
   line-height: 1.5;
 }
 
-/* =======================
-SENSE SLIDES + END SLIDE
-======================= */
 #sight-slide,
 #hearing-slide,
 #smell-slide,
@@ -271,7 +250,6 @@ SENSE SLIDES + END SLIDE
   max-width: 75%;
 }
 
-/* Big bold black text like title */
 .sense-text {
   max-width: 560px;
   font-size: 30px;
