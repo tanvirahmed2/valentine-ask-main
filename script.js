@@ -1,5 +1,5 @@
 // =======================
-// script.js (FULL) - HEARING BUTTON ON SIGHT SLIDE
+// script.js (FULL) + SMELL LOGIC ADDED
 // =======================
 
 // Elements
@@ -42,6 +42,10 @@ const sightSlide = document.getElementById("sight-slide");
 const hearingBtn = document.getElementById("hearing-btn");
 const hearingSlide = document.getElementById("hearing-slide");
 
+// NEW: Smell
+const smellBtn = document.getElementById("smell-btn");
+const smellSlide = document.getElementById("smell-slide");
+
 // Open letter window
 envelope.addEventListener("click", () => {
   envelope.style.display = "none";
@@ -83,7 +87,6 @@ nextBtn.addEventListener("click", () => {
 
   step2.style.display = "block";
 
-  // reset positions
   loveTooBtn.style.transform = "scale(1)";
   loveMoreBtn.style.transform = "translate(0,0)";
 });
@@ -139,6 +142,7 @@ openLetterBtn.addEventListener("click", () => {
   oneMoreSlide.style.display = "none";
   sightSlide.style.display = "none";
   hearingSlide.style.display = "none";
+  smellSlide.style.display = "none";
 });
 
 // Page 1 -> Page 2
@@ -171,8 +175,14 @@ sightBtn.addEventListener("click", () => {
   sightSlide.style.display = "flex";
 });
 
-// Hearing -> hearing slide (button is on Sight slide)
+// Hearing -> hearing slide
 hearingBtn.addEventListener("click", () => {
   sightSlide.style.display = "none";
   hearingSlide.style.display = "flex";
+});
+
+// Smell -> smell slide (NEW)
+smellBtn.addEventListener("click", () => {
+  hearingSlide.style.display = "none";
+  smellSlide.style.display = "flex";
 });

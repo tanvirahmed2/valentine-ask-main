@@ -1,5 +1,5 @@
 /* =======================
-style.css (FULL) - HEARING BUTTON ON SIGHT SLIDE
+style.css (FULL) + SMELL SLIDE WORKS WITH SAME STYLES
 ======================= */
 
 body {
@@ -197,7 +197,8 @@ h1 {
 
 /* SENSE SLIDES */
 #sight-slide,
-#hearing-slide {
+#hearing-slide,
+#smell-slide {
   display: flex;
   flex-direction: column;
   align-items: center;
