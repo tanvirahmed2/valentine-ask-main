@@ -1,5 +1,5 @@
 /* =======================
-style.css (FULL) + TOUCH SLIDE INCLUDED
+style.css (FULL) - END SLIDE USES SAME SENSE STYLES
 ======================= */
 
 body {
@@ -195,12 +195,13 @@ h1 {
   line-height: 1.5;
 }
 
-/* SENSE SLIDES */
+/* SENSE SLIDES (includes END slide) */
 #sight-slide,
 #hearing-slide,
 #smell-slide,
 #taste-slide,
-#touch-slide {
+#touch-slide,
+#end-slide {
   display: flex;
   flex-direction: column;
   align-items: center;
