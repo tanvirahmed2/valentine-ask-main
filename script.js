@@ -1,5 +1,5 @@
 // =======================
-// script.js (FULL)
+// script.js (FULL) + NEW BUTTON LOGIC ADDED
 // =======================
 
 // Elements
@@ -32,6 +32,9 @@ const letterNext2 = document.getElementById("letter-next-2");
 
 const lastlyBtn = document.getElementById("lastly-btn");
 const usSlide = document.getElementById("us-slide");
+
+const oneMoreBtn = document.getElementById("one-more-btn");       // NEW
+const oneMoreSlide = document.getElementById("one-more-slide");   // NEW
 
 // Open letter window
 envelope.addEventListener("click", () => {
@@ -129,6 +132,7 @@ openLetterBtn.addEventListener("click", () => {
   page2.style.display = "none";
   page3.style.display = "none";
   usSlide.style.display = "none";
+  oneMoreSlide.style.display = "none"; // NEW
 });
 
 // Page 1 -> Page 2
@@ -147,4 +151,10 @@ letterNext2.addEventListener("click", () => {
 lastlyBtn.addEventListener("click", () => {
   letterPages.style.display = "none";
   usSlide.style.display = "flex";
+});
+
+// One more thing -> new message slide (NEW)
+oneMoreBtn.addEventListener("click", () => {
+  usSlide.style.display = "none";
+  oneMoreSlide.style.display = "flex";
 });

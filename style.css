@@ -1,5 +1,5 @@
 /* =======================
-style.css (FULL)
+style.css (FULL) + NEW SLIDE STYLES ADDED
 ======================= */
 
 body {
@@ -193,4 +193,18 @@ h1 {
 .us-img {
   width: 220px;
   max-width: 70%;
+}
+
+/* ONE MORE THING SLIDE (NEW) */
+#one-more-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.one-more-text {
+  max-width: 560px;
+  font-size: 18px;
+  line-height: 1.5;
 }
