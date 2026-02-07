@@ -1,3 +1,7 @@
+/* =======================
+style.css (FULL)
+======================= */
+
 body {
   margin: 0;
   height: 100vh;
@@ -51,7 +55,7 @@ body {
   background-position: center;
 
   border-radius: 12px;
-  padding-top: 270px; /* your “a bit lower” */
+  padding-top: 270px;
   padding-left: 20px;
   padding-right: 20px;
 
@@ -141,44 +145,52 @@ h1 {
 /* =========================
    LETTER MODE (TEXT ONLY)
    ========================= */
-
-/* Push everything lower inside the window during letter mode */
 .letter-window.letter-mode {
-  padding-top: 300px;   /* ✅ lower the content */
+  padding-top: 300px;
   gap: 14px;
 }
 
-/* Keep the pages nicely centered in the window */
 #letter-pages {
   width: 100%;
   max-width: 560px;
 }
 
-/* Each letter page */
 .letter-page {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 14px;
 }
 
-/* NO SCROLL: let the full page show */
+/* NO SCROLL, fit text */
 .letter-text {
   width: 100%;
-  overflow: hidden;     /* ✅ removes scrollbar */
-  max-height: none;     /* ✅ no height limit */
+  overflow: hidden;
+  max-height: none;
   padding: 16px 18px;
 
   background-color: rgba(255, 240, 240, 0.55);
   border-radius: 12px;
 
   text-align: left;
-  font-size: 14px;      /* ✅ smaller so all text fits */
-  line-height: 1.45;    /* ✅ tighter spacing to fit */
+  font-size: 14px;
+  line-height: 1.45;
 }
 
-/* Paragraph spacing inside letter */
 .letter-text p {
-  margin: 0 0 8px 0;    /* ✅ smaller spacing */
+  margin: 0 0 8px 0;
 }
 
+/* FINAL US SLIDE */
+#us-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.us-img {
+  width: 220px;
+  max-width: 70%;
+}

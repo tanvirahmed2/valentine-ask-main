@@ -1,3 +1,7 @@
+// =======================
+// script.js (FULL)
+// =======================
+
 // Elements
 const envelope = document.getElementById("envelope-container");
 const letter = document.getElementById("letter-container");
@@ -25,6 +29,9 @@ const page2 = document.getElementById("page-2");
 const page3 = document.getElementById("page-3");
 const letterNext1 = document.getElementById("letter-next-1");
 const letterNext2 = document.getElementById("letter-next-2");
+
+const lastlyBtn = document.getElementById("lastly-btn");
+const usSlide = document.getElementById("us-slide");
 
 // Open letter window
 envelope.addEventListener("click", () => {
@@ -97,7 +104,7 @@ loveTooBtn.addEventListener("click", () => {
   step2.style.display = "none";
 
   title.textContent = "Let's be Honest!";
-  catImg.src = "love.png"; // your last-slide image
+  catImg.src = "love.png";
 
   honestyText.style.display = "inline-block";
   openLetterBtn.style.display = "inline-block";
@@ -118,26 +125,26 @@ openLetterBtn.addEventListener("click", () => {
 
   // show letter pages
   letterPages.style.display = "block";
-  page1.style.display = "block";
+  page1.style.display = "flex";
   page2.style.display = "none";
   page3.style.display = "none";
-
-  // reset scroll positions
-  page1.querySelector(".letter-text").scrollTop = 0;
-  page2.querySelector(".letter-text").scrollTop = 0;
-  page3.querySelector(".letter-text").scrollTop = 0;
+  usSlide.style.display = "none";
 });
 
 // Page 1 -> Page 2
 letterNext1.addEventListener("click", () => {
   page1.style.display = "none";
-  page2.style.display = "block";
-  page2.querySelector(".letter-text").scrollTop = 0;
+  page2.style.display = "flex";
 });
 
-// Page 2 -> Page 3 (no button)
+// Page 2 -> Page 3
 letterNext2.addEventListener("click", () => {
   page2.style.display = "none";
-  page3.style.display = "block";
-  page3.querySelector(".letter-text").scrollTop = 0;
+  page3.style.display = "flex";
+});
+
+// Lastly -> final us slide
+lastlyBtn.addEventListener("click", () => {
+  letterPages.style.display = "none";
+  usSlide.style.display = "flex";
 });
