@@ -1,7 +1,5 @@
 /* =======================
 style.css (FULL) ✅ UPDATED
-- keeps your existing layout
-- adds per-slide move controls for EVERYTHING
 ======================= */
 
 body {
@@ -179,7 +177,8 @@ h1 {
 #smell-slide,
 #taste-slide,
 #touch-slide,
-#end-slide {
+#end-slide,
+#flower-slide {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -224,7 +223,7 @@ h1 {
 
 /* ---------- LET'S BE HONEST slide ---------- */
 .letter-window.slide-honest #letter-title    { transform: translateY(0px); }
-.letter-window.slide-honest #letter-cat      { transform: translateY(-20px); } /* love.png */
+.letter-window.slide-honest #letter-cat      { transform: translateY(-20px); }
 .letter-window.slide-honest #honesty-text    { transform: translateY(-60px); }
 .letter-window.slide-honest #open-letter-btn { transform: translateY(-60px); }
 
@@ -263,5 +262,10 @@ h1 {
 .letter-window.slide-touch #the-end-btn             { transform: translateY(-130px); }
 
 /* ---------- END slide ---------- */
-.letter-window.slide-end #end-slide .sense-img  { transform: translateY(0px); }
-.letter-window.slide-end #end-slide .sense-text { transform: translateY(0px); }
+.letter-window.slide-end #end-slide .sense-img   { transform: translateY(-40px); }
+.letter-window.slide-end #end-slide .sense-text  { transform: translateY(-50px); }
+.letter-window.slide-end #right-btn              { transform: translateY(-50px); }
+
+/* ---------- FLOWER slide ---------- */
+.letter-window.slide-flower #flower-slide .sense-img  { transform: translateY(-80px); }
+.letter-window.slide-flower #flower-slide .sense-text { transform: translateY(-80px); }

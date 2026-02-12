@@ -1,5 +1,5 @@
 // =======================
-// script.js (FULL) ✅ UPDATED (slide classes + per-slide controls enabled)
+// script.js (FULL) ✅ UPDATED
 // =======================
 
 const envelope = document.getElementById("envelope-container");
@@ -53,6 +53,9 @@ const touchSlide = document.getElementById("touch-slide");
 const theEndBtn = document.getElementById("the-end-btn");
 const endSlide = document.getElementById("end-slide");
 
+const rightBtn = document.getElementById("right-btn");
+const flowerSlide = document.getElementById("flower-slide");
+
 const win = document.querySelector(".letter-window");
 
 // helper: remove all slide classes, then add the one we want
@@ -67,7 +70,8 @@ function setSlideClass(className) {
     "slide-smell",
     "slide-taste",
     "slide-touch",
-    "slide-end"
+    "slide-end",
+    "slide-flower"
   );
   if (className) win.classList.add(className);
 }
@@ -109,7 +113,7 @@ yesBtn.addEventListener("click", () => {
 
 // Next -> step 2
 nextBtn.addEventListener("click", () => {
-  setSlideClass(""); // no slide class here
+  setSlideClass("");
 
   loveText.style.display = "none";
   nextBtn.style.display = "none";
@@ -157,7 +161,7 @@ openLetterBtn.addEventListener("click", () => {
   honestyText.style.display = "none";
   openLetterBtn.style.display = "none";
 
-  setSlideClass(""); // stop using slide positions
+  setSlideClass("");
   win.classList.add("letter-mode");
 
   title.style.display = "none";
@@ -176,6 +180,7 @@ openLetterBtn.addEventListener("click", () => {
   tasteSlide.style.display = "none";
   touchSlide.style.display = "none";
   endSlide.style.display = "none";
+  flowerSlide.style.display = "none";
 });
 
 // Page navigation
@@ -193,7 +198,6 @@ letterNext2.addEventListener("click", () => {
 lastlyBtn.addEventListener("click", () => {
   letterPages.style.display = "none";
   usSlide.style.display = "flex";
-
   setSlideClass("slide-us");
 });
 
@@ -201,7 +205,6 @@ lastlyBtn.addEventListener("click", () => {
 oneMoreBtn.addEventListener("click", () => {
   usSlide.style.display = "none";
   oneMoreSlide.style.display = "flex";
-
   setSlideClass("slide-onemore");
 });
 
@@ -209,7 +212,6 @@ oneMoreBtn.addEventListener("click", () => {
 sightBtn.addEventListener("click", () => {
   oneMoreSlide.style.display = "none";
   sightSlide.style.display = "flex";
-
   setSlideClass("slide-sight");
 });
 
@@ -217,7 +219,6 @@ sightBtn.addEventListener("click", () => {
 hearingBtn.addEventListener("click", () => {
   sightSlide.style.display = "none";
   hearingSlide.style.display = "flex";
-
   setSlideClass("slide-hearing");
 });
 
@@ -225,7 +226,6 @@ hearingBtn.addEventListener("click", () => {
 smellBtn.addEventListener("click", () => {
   hearingSlide.style.display = "none";
   smellSlide.style.display = "flex";
-
   setSlideClass("slide-smell");
 });
 
@@ -233,7 +233,6 @@ smellBtn.addEventListener("click", () => {
 tasteBtn.addEventListener("click", () => {
   smellSlide.style.display = "none";
   tasteSlide.style.display = "flex";
-
   setSlideClass("slide-taste");
 });
 
@@ -241,7 +240,6 @@ tasteBtn.addEventListener("click", () => {
 touchBtn.addEventListener("click", () => {
   tasteSlide.style.display = "none";
   touchSlide.style.display = "flex";
-
   setSlideClass("slide-touch");
 });
 
@@ -249,6 +247,12 @@ touchBtn.addEventListener("click", () => {
 theEndBtn.addEventListener("click", () => {
   touchSlide.style.display = "none";
   endSlide.style.display = "flex";
-
   setSlideClass("slide-end");
+});
+
+// ✅ Right? -> Flower slide
+rightBtn.addEventListener("click", () => {
+  endSlide.style.display = "none";
+  flowerSlide.style.display = "flex";
+  setSlideClass("slide-flower");
 });
